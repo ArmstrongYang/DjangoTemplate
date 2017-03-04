@@ -1,0 +1,54 @@
+﻿{% extends "main/layout.html" %}
+{% block chartscripts %}
+
+{% load staticfiles %}
+    <script src="{% static 'js/highcharts.min.js' %}"></script>
+    <script src="{% static 'js/exporting.js' %}"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var List = {{ data|safe }};
+        Highcharts.chart('container', {
+            title: {
+                text: '海拔高度和气压关系图',
+                //text: 'Absolute Altitude relationship with Barometric pressure',
+            },
+            subtitle: {
+                text: '{{ subtitle_text }}',
+            },
+            xAxis: {
+                title: {
+                    text: '大气压强（hPa）'
+                    //text: 'Amplitude (mV)'
+                },
+            },
+            yAxis: {
+                title: {
+                    text: '海拔高度（m）'
+                    //text: 'Amplitude (mV)'
+                },
+                plotLines: [{
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '海拔/气压',
+                data: List
+            }]
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+{% endblock %}

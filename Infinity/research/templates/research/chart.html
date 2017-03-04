@@ -1,0 +1,49 @@
+﻿{% extends "main/layout.html" %}
+{% block chartscripts %}
+
+{% load staticfiles %}
+    <script src="{% static 'js/highcharts.min.js' %}"></script>
+    <script src="{% static 'js/exporting.js' %}"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var List = {{ test|safe }};
+        Highcharts.chart('container', {
+            title: {
+                text: 'Photoplethysmography signal',
+            },
+            subtitle: {
+                text: '{{ subtitle_text }}',
+            },
+            xAxis: {
+                
+            },
+            yAxis: {
+                title: {
+                    text: 'Amplitude (mV)'
+                },
+                plotLines: [{
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'PPG',
+                data: List
+            }]
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+{% endblock %}

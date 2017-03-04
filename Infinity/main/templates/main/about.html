@@ -1,0 +1,25 @@
+﻿{% extends "main/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+        <h2>{{ message }}</h2>
+        <div>
+            <h4>Name:</h4>
+            <h2>hiyangdong</h2>
+        </div>
+        <div>
+            <h4>Address:</h4>
+            <h2>Shanghai,China</h2>
+        </div>
+        <contact>
+            <h4>Email:</h4>
+            <h2><a href="mailto:hiyangdong@hotmail.com">hiyangdong@hotmail.com</a></h2>
+        </contact>
+
+	</div>
+</div>
+
+{% endblock %}

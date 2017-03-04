@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ title }} </title>
+    {% load staticfiles %}
+    {% load logofiles %}
+    {% load resourcefiles %}
+    {% open_source %}
+    {% main_logo %}
+    
+    <link  href="{{ bootstrap_css }}" rel="stylesheet" type="text/css"/>
+    <link  href="{{ font_awesome }}" rel="stylesheet" type="text/css"/>
+    <link  href="{{ animate_css }}" rel="stylesheet" type="text/css"/>
+    <link  href="{{ custom_home_css }}" rel="stylesheet" type="text/css"/>
+
+    <script src="{{ jquery }}"></script>
+    <script src="{{ bootstrap_js }}"></script>
+
+    {% block chartscripts %}{% endblock %}
+    {% block stylecss %}{% endblock %}
+    {% block scripts-header %}{% endblock %}
+    {% block stylecss-header %}{% endblock %}
+    
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                     <div class="logo-text"><span><samp><img class="img-responsive"  src="{{ logo_src }}" alt="logo"></samp>Infinity</span></div>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+	            <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog<b class="caret"></b></a>
+                        <ul class="dropdown-menu depth_0">
+                            <li><a href="{% url 'blog-home' %}">Introduction</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url 'blog-home' %}">Articals</a></li>
+                            <li><a href="{% url 'blog-home' %}">Analysis</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Family<b class="caret"></b></a>
+                        <ul class="dropdown-menu depth_0">
+                            <li><a href="{% url 'family-home' %}">Introduction</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url 'bar' %}">Travel</a></li>
+                            <li><a href="{% url 'family-home' %}">Stories</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Research<b class="caret"></b></a>
+                        <ul class="dropdown-menu depth_0">
+                            <li><a href="{% url 'research-home' %}">Introduction</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url 'bar' %}">Machine Learning</a></li>
+                            <li><a href="{% url 'research-home' %}">Deep Learning</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'main-about' %}">About</a></li>                
+                </ul>
+                {% include 'main/layoutlogin.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+        <footer>
+            <h5>&copy; {{ year }} - Infinity Center - {{ message }}</h5>
+        </footer>
+    </div>
+    {% block scripts-footer %}{% endblock %}
+</body>
+</html>

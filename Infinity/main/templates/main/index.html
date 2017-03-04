@@ -1,0 +1,36 @@
+﻿{% extends "main/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<div class="jumbotron ">
+    <h1>Infinity
+	<img style="float:right" alt="Infinity Logo" width="128" height="128" src="{{ logo_src }}" class="img-rounded" />
+    </h1>
+    
+    <p class="lead">Infinity is a multi resource management platform. The platform provides Infinity Blog, Love and AI Information.</p>
+</div>
+<!-- TODO: 添加一些数据处理的结果图片 -->
+<div class="row">
+    <div class="col-md-4">
+        <img class="img-responsive img-rounded" alt="Health Infinity Logo" src="{{ logo_blog_src }}"  />
+        <h3>Infinity Blog</h3>
+        <p>This is a powerbank of everything, and I will write some articles and you can learn by the blog system.
+        </p>
+        <a href="{% url 'main-home' %}" class="btn btn-primary">Learn more &raquo;</a>        
+    </div>
+    <div class="col-md-4">
+        <img class="img-responsive img-rounded" alt="Health Infinity Logo" src="{{ logo_family_src }}" />
+        <h3>Infinity Love</h3>
+        <p>The infinity love is my family related stories, you can see what happened in our love journey.</p>
+        <a href="{% url 'main-home' %}" class="btn btn-primary">Learn more &raquo;</a>        
+    </div>
+    <div class="col-md-4">
+        <img class="img-responsive img-rounded" alt="Health Infinity Logo" src="{{ logo_research_src }}"/>
+        <h3>Contact Us</h3>
+        <p>This is a platform of infinity management center, if you want to know more information or have any qusetion, please contact us.</p>
+        <a href="{% url 'main-about' %}" class="btn btn-primary">Learn more &raquo;</a>
+    </div>
+</div>
+
+{% endblock %}
