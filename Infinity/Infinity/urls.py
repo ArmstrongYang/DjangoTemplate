@@ -1,5 +1,5 @@
 """
-Definition of urls for HealthInfinity.
+Definition of urls for Infinity.
 """
 
 from datetime import datetime

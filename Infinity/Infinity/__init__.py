@@ -1,3 +1,3 @@
 """
-Package for HealthInfinity.
+Package for Infinity.
 """
